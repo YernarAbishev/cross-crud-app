@@ -1,0 +1,16 @@
+{% extends '../base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+
+{% block content %}
+<article class="message is-link">
+    <div class="message-body">
+        <h3 class="title is-3">{{ post.title }}</h3>
+        <h4 class="subtitle is-4">{{ post.postDate}}</h4>
+        <p class="mb-4">{{ post.content }}</p>
+        <a href="{% url 'editPost' pk=post.pk %}" class="button is-primary">Изменить</a>
+        <a href="{% url 'deletePost' pk=post.pk %}" class="button is-danger">Удалить</a>
+    </div>
+</article>
+{% endblock %}

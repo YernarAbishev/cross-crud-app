@@ -1,0 +1,25 @@
+{% extends '../base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Изменить пост{% endblock %}
+
+
+{% block content %}
+<style>
+  #id_title, #id_content {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #a2d2b2;
+  }
+</style>
+<h1 class="title is-1">Изменить пост</h1>
+<div class="card">
+  <form method="post" class="card-content">
+    {% csrf_token %}
+    <input value="{{ post.title }}" type="text" name="title" maxlength="255" class="textinput textInput" required="" id="id_title">
+    <textarea name="content" cols="40" rows="10" class="textarea" required="" id="id_content">
+        {{ post.content }}
+    </textarea>
+      <button class="mt-3 button is-primary">Изменить</button>
+  </form>
+</div>
+{% endblock %}

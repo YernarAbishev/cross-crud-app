@@ -1,0 +1,15 @@
+{% extends '../base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Удалить пост{% endblock %}
+
+
+{% block content %}
+<h1 class="title is-1">Удалить пост?</h1>
+<div class="card">
+  <form method="post" class="card-content">
+    {% csrf_token %}
+    <button class="button is-danger">Да</button>
+    <a href="{% url 'postDetail' pk=post.pk %}" class="button is-info">Нет</a>
+  </form>
+</div>
+{% endblock %}
